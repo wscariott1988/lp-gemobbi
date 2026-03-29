@@ -286,6 +286,33 @@
                 line-height: 1.5 !important;
             }
         }
+
+        /* Otimizações Desktop */
+        @media (min-width: 769px) {
+            .cta-button {
+                display: inline-block !important;
+                width: auto !important;
+                padding: 18px 48px !important;
+                margin-top: 0 !important;
+            }
+
+            .desktop-max-width {
+                max-width: 900px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            .flex-stretch {
+                display: flex !important;
+                align-items: stretch !important;
+            }
+            
+            .flex-stretch > div {
+                height: auto !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+        }
     </style>
 </head>
 
@@ -513,7 +540,7 @@
     </section>
     <!-- A MATEMÁTICA E A CAUÇÃO REVERSÍVEL -->
     <section class="py-20 px-6 md:px-12 lg:px-24 bg-[#1A1A1A]">
-        <div class="max-w-4xl mx-auto">
+        <div class="desktop-max-width">
             <div class="text-center mb-16">
                 <h2 class="font-brand font-black text-3xl md:text-5xl text-on-surface mb-6">
                     A matemática transparente: A sua garantia de hoje garante a sua moto amanhã.
@@ -574,7 +601,7 @@
     <!-- BLOCO DA ECONOMIA E LIBERDADE -->
     <section class="py-20 px-6 md:px-12 lg:px-24 bg-[#1A1A1A]">
         <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="flex-stretch grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- CARD 1: A Fuga dos Custos Ocultos -->
                 <div class="premium-card p-8 md:p-10 border-t-4 border-[#FF5400] flex flex-col h-full">
                     <h3 class="text-2xl mb-6 uppercase leading-tight italic">Fuja dos Custos Ocultos do Mercado Tradicional</h3>
@@ -634,7 +661,7 @@
     </section>
     <!-- BLOCO 5: PRÉ-REQUISITOS E ÁREA DE ATENDIMENTO -->
     <section class="py-24 px-6 md:px-12 lg:px-24 bg-[#1A1A1A]">
-        <div class="max-w-4xl mx-auto">
+        <div class="desktop-max-width">
             <div class="text-center mb-16">
                 <h2 class="font-brand font-black text-3xl md:text-5xl text-on-surface mb-6">
                     Seu perfil se encaixa no Plano Locação Inteligente?
@@ -688,7 +715,7 @@
     </section>
     <!-- FAQ E CHAMADA FINAL -->
     <section class="py-20 px-6 md:px-12 lg:px-24 bg-[#1A1A1A]">
-        <div class="max-w-4xl mx-auto">
+        <div class="desktop-max-width">
             <div class="text-center mb-16">
                 <h2 class="font-brand font-black text-3xl md:text-5xl text-on-surface mb-6 uppercase leading-[1.2]">
                     Ainda tem dúvidas? Na <span class="text-[#FF5400]">G</span>e<span class="text-[#FF5400]">M</span>obbi, o combinado não sai caro.
@@ -768,7 +795,7 @@
 
     <!-- PROVA SOCIAL (DEPOIMENTOS) -->
     <section class="py-20 px-6 md:px-12 lg:px-24 bg-[#1A1A1A]">
-        <div class="max-w-7xl mx-auto">
+        <div class="desktop-max-width">
             <div class="text-center mb-16">
                 <h2 class="font-brand font-black text-3xl md:text-5xl text-white mb-6 uppercase leading-tight">
                     O que dizem os parceiros que já saíram do aluguel eterno.
