@@ -287,28 +287,72 @@
             }
         }
 
-        /* Otimizações Desktop */
+        /* ============================================
+           DESKTOP OVERRIDES - FORCA BRUTA
+           min-width: 769px
+        ============================================ */
         @media (min-width: 769px) {
+
+            /* 1. BOTOES (CTAs) */
             .cta-button {
+                width: max-content !important;
                 display: inline-block !important;
-                width: auto !important;
                 padding: 18px 48px !important;
                 margin-top: 0 !important;
             }
 
-            .desktop-max-width {
-                max-width: 900px !important;
+            .flex.justify-center > .cta-button,
+            .flex.justify-center .cta-button {
                 margin-left: auto !important;
                 margin-right: auto !important;
             }
 
+            .hero-section .cta-button {
+                margin-left: 0 !important;
+                margin-right: auto !important;
+            }
+
+            /* 2. CONTENCAO DE LARGURA */
+            .desktop-max-width {
+                max-width: 1000px !important;
+                width: 100% !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                padding-left: 1.5rem !important;
+                padding-right: 1.5rem !important;
+            }
+
+            /* 3. HERO: LAYOUT LADO A LADO */
+            .hero-section > div {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                align-items: center !important;
+                gap: 3rem !important;
+                max-width: 1280px !important;
+                margin: 0 auto !important;
+            }
+
+            .hero-section .z-10 {
+                order: 1 !important;
+            }
+
+            .hero-image-container {
+                order: 2 !important;
+                margin: 0 !important;
+                width: 100% !important;
+            }
+
+            /* 4. CARDS LADO A LADO (Comparacao) */
             .flex-stretch {
                 display: flex !important;
+                flex-direction: row !important;
                 align-items: stretch !important;
+                gap: 2.5rem !important;
             }
-            
+
             .flex-stretch > div {
-                height: auto !important;
+                width: 50% !important;
+                flex: 1 1 0 !important;
                 display: flex !important;
                 flex-direction: column !important;
             }
