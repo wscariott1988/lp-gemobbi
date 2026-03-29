@@ -322,37 +322,56 @@
                 padding-right: 1.5rem !important;
             }
 
-            /* 3. HERO: LAYOUT LADO A LADO - PROPORCOES VITRINE */
+            /* 3. HERO: LAYOUT CINEMATICO CENTRALIZADO */
             .hero-section > div {
-                display: grid !important;
-                grid-template-columns: 45% 55% !important;
+                display: flex !important;
+                flex-direction: column !important;
                 align-items: center !important;
-                gap: 2rem !important;
+                justify-content: center !important;
+                text-align: center !important;
                 max-width: 1280px !important;
                 margin: 0 auto !important;
+                gap: 0 !important;
+                grid-template-columns: unset !important;
             }
 
-            /* Coluna de texto: max 500px */
+            /* Bloco de texto: centralizado, largura de leitura confortavel */
             .hero-section .z-10 {
                 order: 1 !important;
                 width: 100% !important;
-                max-width: 500px !important;
+                max-width: 900px !important;
+                margin: 0 auto 40px auto !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
             }
 
-            /* Coluna da moto: 55% com overflow visivel */
+            /* Centraliza o check-list e botao */
+            .hero-section .hero-benefits {
+                justify-content: center !important;
+            }
+
+            .hero-section .cta-button {
+                display: inline-block !important;
+                margin: 0 auto !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            /* Moto: majestosa abaixo do texto, sem scale */
             .hero-image-container {
                 order: 2 !important;
-                margin: 0 !important;
+                margin: 0 auto !important;
                 width: 100% !important;
+                max-width: 1000px !important;
                 overflow: visible !important;
             }
 
-            /* Imagem da moto: efeito vitrine agressivo */
             .hero-image {
                 width: 100% !important;
-                max-width: none !important;
-                transform: scale(1.25) !important;
-                transform-origin: center right !important;
+                max-width: 100% !important;
+                transform: none !important;
+                transform-origin: unset !important;
             }
 
             /* 4. CARDS LADO A LADO (Comparacao) */
