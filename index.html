@@ -218,27 +218,34 @@
             }
             .hero-description {
                 font-size: 15px !important;
-                margin-bottom: 1.5rem !important; /* Reduzido de 2rem */
+                margin-bottom: 1.5rem !important;
                 line-height: 1.4 !important;
             }
             .hero-benefits {
-                margin-bottom: 1.5rem !important; /* Reduzido de 2rem */
+                margin-bottom: 1.5rem !important;
                 gap: 0.5rem !important;
+            }
+
+            /* Redução Global de Paddings de Seção Mobile */
+            section {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
             }
 
             /* Ajustes Gerais de CTAs */
             .cta-button {
-                padding: 14px 28px !important; /* Estilo pílula elegante */
-                font-size: 17px !important;
-                margin-bottom: 0 !important; /* Removido espaço abaixo */
+                padding: 12px 24px !important;
+                font-size: 16px !important;
+                margin-bottom: 0 !important;
+                margin-top: 0.5rem !important;
             }
 
-            /* Redução de Base de Seções */
-            .hero-section {
-                padding-bottom: 1rem !important; /* Espaço mínimo após a moto */
-            }
+            /* Ajustes específicos de containers de botões */
+            .mt-16, .mt-8, .mt-4 { margin-top: 0.5rem !important; }
+            .mb-24, .mb-16, .mb-12 { margin-bottom: 1rem !important; }
+
             .section-dor {
-                padding-top: 2rem !important; /* Colar mais na hero */
+                padding-top: 1rem !important;
             }
 
             /* Galeria */
@@ -246,7 +253,7 @@
                 grid-template-columns: 1fr !important;
             }
             .galeria-title {
-                color: #FFFFFF !important; /* Contraste máximo */
+                color: #FFFFFF !important;
                 margin-bottom: 2rem !important;
             }
 
@@ -730,16 +737,15 @@
                     </div>
                 </details>
             </div>
-            <div class="premium-card p-12 text-center">
-                <h2 class="text-4xl md:text-5xl mb-6 uppercase leading-tight">
+            <div class="premium-card p-6 md:p-12 text-center">
+                <h2 class="text-3xl md:text-5xl mb-4 uppercase leading-tight italic font-black">
                     Chegou a hora de acelerar o seu futuro.
                 </h2>
-                <p class="text-xl mb-10">
-                    As vagas para novos parceiros no Vale dos Sinos e Serra Gaúcha são estritamente limitadas para
-                    mantermos a qualidade do nosso atendimento. Não deixe sua liberdade para depois.
+                <p class="text-lg mb-6">
+                    As vagas para novos parceiros no Vale dos Sinos e Serra Gaúcha são estritamente limitadas.
                 </p>
                 <a href="#formulario"
-                    class="cta-button w-full py-6 md:py-8 text-xl md:text-2xl flex items-center justify-center gap-4 text-center">
+                    class="cta-button w-full py-5 text-lg flex items-center justify-center gap-4 text-center">
                     INICIAR MINHA ANÁLISE DE PERFIL
                 </a>
             </div>
