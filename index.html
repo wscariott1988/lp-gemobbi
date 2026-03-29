@@ -322,24 +322,37 @@
                 padding-right: 1.5rem !important;
             }
 
-            /* 3. HERO: LAYOUT LADO A LADO */
+            /* 3. HERO: LAYOUT LADO A LADO - PROPORCOES VITRINE */
             .hero-section > div {
                 display: grid !important;
-                grid-template-columns: 1fr 1fr !important;
+                grid-template-columns: 45% 55% !important;
                 align-items: center !important;
-                gap: 3rem !important;
+                gap: 2rem !important;
                 max-width: 1280px !important;
                 margin: 0 auto !important;
             }
 
+            /* Coluna de texto: max 500px */
             .hero-section .z-10 {
                 order: 1 !important;
+                width: 100% !important;
+                max-width: 500px !important;
             }
 
+            /* Coluna da moto: 55% com overflow visivel */
             .hero-image-container {
                 order: 2 !important;
                 margin: 0 !important;
                 width: 100% !important;
+                overflow: visible !important;
+            }
+
+            /* Imagem da moto: efeito vitrine agressivo */
+            .hero-image {
+                width: 100% !important;
+                max-width: none !important;
+                transform: scale(1.25) !important;
+                transform-origin: center right !important;
             }
 
             /* 4. CARDS LADO A LADO (Comparacao) */
