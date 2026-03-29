@@ -192,6 +192,39 @@
         .close-modal:hover {
             color: #FF5400;
         }
+
+        /* Otimizações Mobile Hero */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding-top: 2rem !important;
+                padding-bottom: 3rem !important;
+            }
+            .hero-title {
+                font-size: 30px !important;
+                line-height: 1.2 !important;
+                margin-bottom: 1.5rem !important;
+            }
+            .hero-image-container {
+                margin: 0 -1.5rem 2rem -1.5rem !important;
+                width: calc(100% + 3rem) !important;
+                max-width: none !important;
+            }
+            .hero-image {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+            .hero-tag {
+                margin-bottom: 1rem !important;
+            }
+            .hero-description {
+                font-size: 16px !important;
+                margin-bottom: 2rem !important;
+            }
+            .hero-benefits {
+                margin-bottom: 2rem !important;
+                gap: 0.75rem !important;
+            }
+        }
     </style>
 </head>
 
@@ -203,25 +236,25 @@
         </h1>
     </header>
     <!-- HERO SECTION -->
-    <section class="relative overflow-hidden pt-12 pb-24 px-6 md:px-12 lg:px-24 bg-[#1A1A1A]">
+    <section class="hero-section relative overflow-hidden pt-12 pb-24 px-6 md:px-12 lg:px-24 bg-[#1A1A1A]">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div class="z-10 order-2 lg:order-1">
                 <div
-                    class="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-green-500/10 border border-green-500/20 mb-6">
+                    class="hero-tag inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-green-500/10 border border-green-500/20 mb-6">
                     <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                     <span class="text-xs font-bold text-green-500 uppercase tracking-widest">O FIM DO ALUGUEL ETERNO NO
                         VALE DOS SINOS E SERRA GAÚCHA</span>
                 </div>
-                <h2 class="font-brand font-black text-4xl md:text-6xl leading-[1.1] text-on-surface mb-8">
+                <h2 class="hero-title font-brand font-black text-4xl md:text-6xl leading-[1.1] text-on-surface mb-8">
                     Pare de jogar dinheiro fora na locação comum. Alugue sua moto hoje e, ao final do contrato, ela pode
                     ser sua.
                 </h2>
-                <p class="text-lg md:text-xl text-on-surface/80 mb-10 leading-relaxed max-w-2xl">
+                <p class="hero-description text-lg md:text-xl text-on-surface/80 mb-10 leading-relaxed max-w-2xl">
                     A melhor alternativa para quem usa a moto como ferramenta de trabalho. Tenha uma Honda Zero KM com
                     Seguro Total, Rastreador e IPVA já inclusos. Sem consulta ao SPC/Serasa: nossa aprovação depende
                     apenas de análise interna do seu perfil.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-6 mb-12">
+                <div class="hero-benefits flex flex-col sm:flex-row gap-6 mb-12">
                     <div class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-green-500">check_circle</span>
                         <span class="font-bold text-sm tracking-tight">Sem consulta a SPC/Serasa</span>
@@ -236,10 +269,10 @@
                     INICIAR MINHA ANÁLISE DE PERFIL
                 </a>
             </div>
-            <div class="relative order-1 lg:order-2 flex justify-center">
+            <div class="hero-image-container relative order-1 lg:order-2 flex justify-center">
                 <div class="absolute inset-0 bg-primary-container/10 blur-[120px] rounded-full"></div>
                 <img alt="Honda CG 160 Fan 2026"
-                    class="relative z-10 w-full max-w-xl object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
+                    class="hero-image relative z-10 w-full max-w-xl object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
                     src="moto-honda-fan-160-prata-gemobbi.webp" />
             </div>
         </div>
