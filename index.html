@@ -224,6 +224,32 @@
                 margin-bottom: 2rem !important;
                 gap: 0.75rem !important;
             }
+
+            /* Ajustes Gerais de CTAs */
+            .cta-button {
+                padding: 12px 24px !important;
+                margin-bottom: 1rem !important;
+            }
+
+            /* Galeria 1 Coluna */
+            .galeria-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Correção de Vazamento Investimento */
+            .investimento-card {
+                padding: 1.5rem !important;
+                overflow-wrap: break-word !important;
+                word-wrap: break-word !important;
+                hyphens: auto !important;
+            }
+            .investimento-card h4 {
+                font-size: 1.25rem !important;
+            }
+            .investimento-card p {
+                font-size: 16px !important;
+                line-height: 1.5 !important;
+            }
         }
     </style>
 </head>
@@ -426,7 +452,7 @@
                     Conheça os detalhes da sua nova ferramenta
                 </h3>
                 
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                <div class="galeria-grid grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                     <div class="group relative overflow-hidden rounded-lg bg-[#242424] border border-white/5 aspect-video md:aspect-square">
                         <img src="moto-honda-fan-inteira.webp" alt="Honda CG 160 Fan Zero KM Inteira" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100">
                     </div>
@@ -485,7 +511,7 @@
                     oferecemos um <span class="text-green-500 font-bold">Bônus de Pontualidade de R$ 20,00</span> para pagamentos realizados rigorosamente em dia. Ou seja, mantendo a
                     sua pontualidade, o valor promocional com o bônus cai para <strong class="text-on-surface">R$ 399,00 por semana</strong>.
                 </p>
-                <div class="bg-[#333333] border-2 border-[#FF5400] p-8 rounded-xl shadow-[0_0_20px_rgba(255,84,0,0.2)]">
+                <div class="investimento-card bg-[#333333] border-2 border-[#FF5400] p-8 rounded-xl shadow-[0_0_20px_rgba(255,84,0,0.2)]">
                     <div class="flex items-center gap-4 mb-4">
                         <span class="material-symbols-outlined text-primary-container text-4xl">lock</span>
                         <h4 class="font-brand font-black text-2xl text-on-surface uppercase italic">Investimento de Retirada</h4>
