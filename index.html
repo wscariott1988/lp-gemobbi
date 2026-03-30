@@ -980,9 +980,20 @@
 
                 <!-- Passo 1: Identificação -->
                 <div class="step-content active" data-step="1">
-                    <h3 class="text-xl mb-6">Qual o seu nome completo?</h3>
-                    <input type="text" name="nome" class="form-input mb-8" required>
-                    <button type="button" class="btn-option btn-primary-form" onclick="nextStep(1)">AVANÇAR</button>
+                    <div class="mb-6">
+                        <label class="block text-sm font-bold text-[#FF5400] uppercase tracking-widest mb-2">Campo 1</label>
+                        <h3 class="text-xl mb-4">Qual o seu nome completo?</h3>
+                        <input type="text" id="nome-input" name="nome" class="form-input" placeholder="Seu nome completo" required>
+                    </div>
+
+                    <div class="mb-8">
+                        <label class="block text-sm font-bold text-[#FF5400] uppercase tracking-widest mb-2">Campo 2</label>
+                        <h3 class="text-xl mb-4">Qual o seu melhor WhatsApp para o consultor Lucas te chamar?</h3>
+                        <input type="tel" id="whatsapp-input" name="whatsapp" class="form-input" placeholder="XX XXXXXXXXX" maxlength="12" required>
+                        <p class="text-[10px] text-on-surface/40 mt-2 uppercase tracking-widest">Formato: DDD + Número (ex: 51 988887777)</p>
+                    </div>
+                    
+                    <button type="button" class="btn-option btn-primary-form" onclick="handleStep1()">AVANÇAR</button>
                 </div>
 
                 <!-- Passo 2: Requisitos de Perfil -->
@@ -1135,6 +1146,42 @@
         modal.addEventListener('click', (e) => {
             if (e.target === modal) fecharModal();
         });
+
+        // Máscara e Validação do Passo 1
+        const whatsappInput = document.getElementById('whatsapp-input');
+        const nomeInput = document.getElementById('nome-input');
+
+        whatsappInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+            
+            if (value.length > 11) value = value.slice(0, 11);
+            
+            // Aplica a máscara XX XXXXXXXXX
+            if (value.length > 2) {
+                value = value.slice(0, 2) + ' ' + value.slice(2);
+            }
+            
+            e.target.value = value;
+        });
+
+        function handleStep1() {
+            const nome = nomeInput.value.trim();
+            const whatsapp = whatsappInput.value.replace(/\D/g, '');
+
+            if (nome === "") {
+                alert("Por favor, preencha seu nome completo.");
+                nomeInput.focus();
+                return;
+            }
+
+            if (whatsapp.length < 11) {
+                alert("Por favor, preencha o WhatsApp com DDD + Número (ex: 51 988887777).");
+                whatsappInput.focus();
+                return;
+            }
+
+            nextStep(1);
+        }
 
         // Lógica de Passos
         function nextStep(currentStep, value) {
