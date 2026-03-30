@@ -20,17 +20,24 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <!-- Preconnect para recursos criticos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts: Montserrat com display=swap (nao bloqueia render) -->
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap"
-        rel="stylesheet" />
+        rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+    </noscript>
+
+    <!-- Material Symbols (carregado uma unica vez) -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'" />
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com?plugins=container-queries"></script>
     <script id="tailwind-config">
         tailwind.config = {
@@ -434,10 +441,11 @@
                 </a>
             </div>
             <div class="hero-image-container relative order-1 lg:order-2 flex justify-center">
-                <div class="absolute inset-0 bg-primary-container/10 blur-[120px] rounded-full"></div>
                 <img alt="Honda CG 160 Fan 2026"
                     class="hero-image relative z-10 w-full max-w-xl object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]"
-                    src="moto-honda-fan-160-prata-gemobbi.webp" />
+                    src="moto-honda-fan-160-prata-gemobbi.webp"
+                    fetchpriority="high"
+                    decoding="async" />
             </div>
         </div>
     </section>
@@ -592,16 +600,16 @@
                 
                 <div class="galeria-grid grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                     <div class="group relative overflow-hidden rounded-lg bg-[#242424] border border-white/5 aspect-video md:aspect-square">
-                        <img src="moto-honda-fan-inteira.webp" alt="Honda CG 160 Fan Zero KM Inteira" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100">
+                        <img src="moto-honda-fan-inteira.webp" alt="Honda CG 160 Fan Zero KM Inteira" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100">
                     </div>
                     <div class="group relative overflow-hidden rounded-lg bg-[#242424] border border-white/5 aspect-video md:aspect-square">
-                        <img src="painel-digital-honda-fan.webp" alt="Painel Digital Blackout Honda Fan 160" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100">
+                        <img src="painel-digital-honda-fan.webp" alt="Painel Digital Blackout Honda Fan 160" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100">
                     </div>
                     <div class="group relative overflow-hidden rounded-lg bg-[#242424] border border-white/5 aspect-video md:aspect-square">
-                        <img src="farol-led-honda-fan.webp" alt="Farol com Iluminação de LED" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100">
+                        <img src="farol-led-honda-fan.webp" alt="Farol com Iluminação de LED" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100">
                     </div>
                     <div class="group relative overflow-hidden rounded-lg bg-[#242424] border border-white/5 aspect-video md:aspect-square">
-                        <img src="banco-confortavel-honda-fan.webp" alt="Banco Ergonômico para Entregadores" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100">
+                        <img src="banco-confortavel-honda-fan.webp" alt="Banco Ergonômico para Entregadores" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100">
                     </div>
                 </div>
 
