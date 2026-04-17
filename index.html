@@ -21,6 +21,123 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wscariott1988.github.io/lp-gemobbi/">
 
+    <!-- JSON-LD Local SEO + Services -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "LocalBusiness",
+                "@id": "https://wscariott1988.github.io/lp-gemobbi/#organization",
+                "name": "GeMobbi",
+                "description": "Locadora de motos Honda Fan 160 no Vale dos Sinos e Serra Gaúcha. Planos de locação semanal e mensal com opção de compra.",
+                "url": "https://wscariott1988.github.io/lp-gemobbi/",
+                "telephone": "+5551995167386",
+                "priceRange": "$$",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Vale dos Sinos",
+                    "addressRegion": "RS",
+                    "addressCountry": "BR"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "-29.4431",
+                    "longitude": "-50.8739"
+                },
+                "openingHoursSpecification": [
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                        "opens": "09:00",
+                        "closes": "19:00"
+                    },
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": ["Saturday"],
+                        "opens": "09:00",
+                        "closes": "13:00"
+                    }
+                ],
+                "areaServed": {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": { "@type": "GeoCoordinates", "latitude": "-29.4431", "longitude": "-50.8739" },
+                    "geoRadius": "50000"
+                }
+            },
+            {
+                "@type": "Service",
+                "@id": "https://wscariott1988.github.io/lp-gemobbi/#service",
+                "name": "Locação de Motos Honda Fan 160",
+                "description": "Locação de moto Honda Fan 160 Zero KM com seguro, rastreador e IPVA inclusos. Planes semanal a partir de R$ 399.",
+                "provider": { "@type": "Organization", "name": "GeMobbi" },
+                "areaServed": ["Vale dos Sinos", "Serra Gaúcha", "Rio Grande do Sul"],
+                "offers": {
+                    "@type": "Offer",
+                    "name": "Plano Semanal",
+                    "price": "399",
+                    "priceCurrency": "BRL",
+                    "availability": "https://schema.org/InStock"
+                },
+                "serviceType": ["VehicleRental", "MotorcycleRental"],
+                "category": "vehicle"
+            },
+            {
+                "@type": "Service",
+                "@id": "https://wscariott1988.github.io/lp-gemobbi/#service-monthly",
+                "name": "Locação de Motos - Plano Mensal",
+                "description": "Plano mensal de locação de moto com opção de compra ao final do contrato.",
+                "provider": { "@type": "Organization", "name": "GeMobbi" },
+                "areaServed": ["Vale dos Sinos", "Serra Gaúcha"],
+                "offers": {
+                    "@type": "Offer",
+                    "name": "Plano Mensal",
+                    "price": "1596",
+                    "priceCurrency": "BRL",
+                    "availability": "https://schema.org/InStock"
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://wscariott1988.github.io/lp-gemobbi/#faq",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Quais os requisitos para alugar uma moto na Gemobbi?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Os requisitos são: CNH categoria A definitiva há mais de 2 anos, ter 23 anos ou mais, garagem fechada e coberta, ficha limpa e comprovação de renda."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "A moto é Zero KM?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Sim, todas as motos são Honda Fan 160 Zero KM, tiradas diretamente da concessionária."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "O que está incluído no plano?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Seguro completo, rastreador 24h, IPVA e documentação estão inclusos no valor da locação."
+                        }
+                    }
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://wscariott1988.github.io/lp-gemobbi/#breadcrumb",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wscariott1988.github.io/lp-gemobbi/" }
+                ]
+            }
+        ]
+    }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <!-- Preconnect para recursos criticos -->
