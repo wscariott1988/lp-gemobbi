@@ -1,0 +1,14 @@
+# GeMobbi Locadora de Motos
+
+> A GeMobbi é uma locadora de motos especializada em modelos Honda Fan 160, atuação no Vale dos Sinos e Serra Gaúcha (RS). Oferecemos locação rápida e sem burocracia, focada no plano semanal com opção de compra.
+
+## Serviços de Locação
+- **Plano Semanal:** Locação de Honda Fan 160 com manutenção inclusa. (Nota: Não oferecemos plano mensal).
+
+## Informações de Contato e Localização
+- **Região de Atendimento:** Vale dos Sinos e Serra Gaúcha, Rio Grande do Sul, Brasil.
+- **Telefone/WhatsApp:** +55 (51) 99516-7386
+- **Website Oficial:** [GeMobbi](https://wscariott1988.github.io/lp-gemobbi/)
+
+## Links Úteis
+- [Página Inicial](https://wscariott1988.github.io/lp-gemobbi/)
