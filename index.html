@@ -967,7 +967,7 @@
     <!-- MODAL FORMULÁRIO QUALIFICAÇÃO -->
     <div id="modalFormulario">
         <div class="modal-content">
-            <span class="material-symbols-outlined close-modal" id="btnFecharModal">close</span>
+            <span class="material-symbols-outlined close-modal" id="btnFecharModal" role="button" tabindex="0">close</span>
             
             <form id="qualificacaoForm" action="https://script.google.com/macros/s/AKfycbyT_rwjhNcIKBBzoLabI55dHdXwxLcYxGtI5xMhNuV3NpT-s2aDsq9C8qQnAzmKLd9ZLg/exec" method="POST">
                 <!-- Inputs ocultos para armazenar as seleções -->
@@ -1129,7 +1129,7 @@
         });
 
         // Fechar Modal
-        function fecharModal() {
+        window.fecharModal = function() {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
             // Reset do form após fechar
