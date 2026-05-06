@@ -254,12 +254,6 @@
 
         .step-content.active {
             display: block;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(20px); }
-            to { opacity: 1; transform: translateX(0); }
         }
 
         .form-input {
@@ -271,9 +265,10 @@
             color: #FFFFFF !important;
             font-family: 'Montserrat', sans-serif;
             margin-top: 8px;
-            transition: border-color 0.3s;
             position: relative;
             z-index: 1;
+            -webkit-user-select: text;
+            user-select: text;
         }
 
         .form-input:focus {
@@ -281,6 +276,10 @@
             border-color: #FF5400;
             background: #3a3a3a;
             box-shadow: 0 0 0 3px rgba(255, 84, 0, 0.2);
+        }
+
+        .form-input:active {
+            border-color: #FF7722;
         }
 
         @media (max-width: 768px) {
@@ -1177,8 +1176,8 @@
                     <div class="mb-8">
                         <label class="block text-sm font-bold text-[#FF5400] uppercase tracking-widest mb-2">Campo 2</label>
                         <h3 class="text-xl mb-4">Qual o seu melhor WhatsApp para o consultor Lucas te chamar?</h3>
-                        <input type="tel" id="whatsapp-input" name="whatsapp" class="form-input" placeholder="XX XXXXXXXXX" maxlength="12" required>
-                        <p class="text-[10px] text-on-surface/40 mt-2 uppercase tracking-widest">Formato: DDD + Número (ex: 51 988887777)</p>
+                        <input type="tel" id="whatsapp-input" name="whatsapp" class="form-input" placeholder="51 999 999 999" maxlength="13" required>
+                        <p class="text-[10px] text-on-surface/40 mt-2 uppercase tracking-widest">Formato: DDD + Número</p>
                     </div>
                     
                     <button type="button" class="btn-option btn-primary-form" onclick="handleStep1()">AVANÇAR</button>
@@ -1345,16 +1344,23 @@
         const nomeInput = document.getElementById('nome-input');
 
         whatsappInput.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+            let value = e.target.value.replace(/\D/g, '');
             
             if (value.length > 11) value = value.slice(0, 11);
             
-            // Aplica a máscara XX XXXXXXXXX
-            if (value.length > 2) {
+            if (value.length > 2 && value.length <= 7) {
                 value = value.slice(0, 2) + ' ' + value.slice(2);
+            } else if (value.length > 7) {
+                value = value.slice(0, 2) + ' ' + value.slice(2, 7) + ' ' + value.slice(7);
             }
             
             e.target.value = value;
+        });
+
+        whatsappInput.addEventListener('focus', (e) => {
+            if (e.target.value === '') {
+                e.target.value = '51 ';
+            }
         });
 
         function handleStep1() {
