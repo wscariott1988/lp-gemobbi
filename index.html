@@ -178,13 +178,22 @@
             scroll-behavior: smooth;
         }
 
-        html {
+html {
             scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #111111;
+            color: #E0E0E0;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 900 !important;
+            font-weight: 900;
             color: #FFFFFF;
         }
 
@@ -197,6 +206,107 @@
             border-radius: 8px;
             box-shadow: 0px 4px 15px rgba(255, 84, 0, 0.4);
             transition: all 0.3s ease;
+            display: inline-block;
+            padding: 16px 32px;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 6px 20px rgba(255, 84, 0, 0.6);
+        }
+
+        /* MODAL */
+        #modalFormulario {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            overflow-y: auto;
+        }
+
+        #modalFormulario.active {
+            display: block;
+        }
+
+        .modal-content {
+            background: #1a1a1a;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 30px;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 32px;
+            color: #888;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: #fff;
+        }
+
+        .step-content {
+            display: none;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px;
+            background: #2a2a2a;
+            border: 2px solid #444;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #FF5400;
+        }
+
+        .btn-option {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+            border: none;
+        }
+
+        .btn-primary-form {
+            background-color: #FF5400;
+            color: white;
+        }
+
+        .btn-secondary-form {
+            background-color: #2a2a2a;
+            color: #ccc;
+            border: 1px solid #555;
+        }
+
+        .btn-option:hover {
+            opacity: 0.9;
+        }
         }
 
         .cta-button:hover {
@@ -794,501 +904,71 @@
                     </div>
                     <div class="group relative overflow-hidden rounded-lg bg-[#242424] border border-white/5 aspect-video md:aspect-square">
                         <img src="banco-confortavel-honda-fan.webp" alt="Banco Ergonômico para Entregadores" width="400" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100">
-                    </div>
-                </div>
-
-                <div class="mt-4">
-                    <a href="#formulario"
-                        class="cta-button inline-flex items-center justify-center px-10 py-5 text-lg w-full">
-                        INICIAR MINHA ANÁLISE DE PERFIL
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- A MATEMÁTICA E A CAUÇÃO REVERSÍVEL -->
-    <section class="py-20 px-6 md:px-12 lg:px-24 bg-[#1A1A1A]">
-        <div class="desktop-max-width">
-            <div class="text-center mb-16">
-                <h2 class="font-brand font-black text-3xl md:text-5xl text-on-surface mb-6">
-                    A matemática transparente: A sua garantia de hoje garante a sua moto amanhã.
-                </h2>
-                <p class="text-xl text-on-surface/70 leading-relaxed">
-                    No Plano Locação Inteligente, os números jogam a seu favor e premiam a sua disciplina. Sem taxas
-                    ocultas e sem surpresas. Veja como é fácil manter a sua ferramenta de trabalho e ainda construir o
-                    seu patrimônio:
-                </p>
-            </div>
-            <div class="premium-card p-8 md:p-12 mb-12 relative">
-                <div class="mb-10 flex flex-col md:flex-row gap-8 items-center justify-between">
-                    <div class="text-center md:text-left">
-                        <span
-                            class="text-sm font-bold uppercase tracking-widest text-on-surface/50 mb-2 block">VALOR NOMINAL</span>
-                        <span class="font-brand font-black text-2xl text-on-surface/50 line-through">R$ 419,00</span>
-                    </div>
-                    <div class="hidden md:block w-px h-16 bg-white/10"></div>
-                    <div class="text-center md:text-right">
-                        <span class="text-xs font-bold uppercase tracking-widest text-[#FF5400] mb-2 block">BÔNUS PONTUALIDADE: -R$ 20,00</span>
-                        <div class="flex flex-col">
-                            <span class="font-brand font-black text-[#FF5400]" style="font-size: 48px; line-height: 1;">R$ 399,00</span>
-                            <span class="text-sm font-bold text-green-500 mt-2 uppercase">Aprox. R$ 57,00 por dia</span>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-on-surface/80 leading-relaxed mb-12">
-                    <strong class="text-on-surface">💰 O Aluguel Semanal e o Bônus de Pontualidade:</strong> O valor
-                    nominal da locação é de R$ 419,00 por semana. No entanto, para premiar quem trabalha com seriedade,
-                    oferecemos um <span class="text-green-500 font-bold">Bônus de Pontualidade de R$ 20,00</span> para pagamentos realizados rigorosamente em dia. Ou seja, mantendo a
-                    sua pontualidade, o valor promocional com o bônus cai para <strong class="text-on-surface">R$ 399,00 por semana</strong>.
-                </p>
-                <div class="investimento-card bg-[#333333] border-2 border-[#FF5400] p-8 rounded-xl shadow-[0_0_20px_rgba(255,84,0,0.2)]">
-                    <div class="flex items-center gap-4 mb-4">
-                        <span class="material-symbols-outlined text-primary-container text-4xl">lock</span>
-                        <h4 class="font-brand font-black text-2xl text-on-surface uppercase italic">Investimento de Retirada</h4>
-                    </div>
-                    <p class="text-on-surface leading-relaxed text-lg mb-4">
-                        Para iniciar sua jornada, o Investimento de Retirada exato é de <strong class="text-[#FF5400] text-xl">R$ 1.519,00</strong>. 
-                        Este valor é a soma transparente de <strong class="text-on-surface">R$ 1.100,00 da sua Caução</strong> + <strong class="text-on-surface">R$ 419,00 da 1ª semana antecipada</strong>.
-                    </p>
-                    <div class="p-4 bg-white/5 rounded-lg border border-white/10">
-                        <p class="text-sm text-on-surface/70 leading-relaxed">
-                            <strong class="text-on-surface uppercase">A Caução Reversível:</strong> Diferente das locadoras comuns, aqui os seus R$ 1.100,00 ficam guardados. Ao completar os 48 meses, esse valor é utilizado para quitar a transferência da moto para o seu nome. É a sua garantia transformando-se em patrimônio.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-center mt-4">
-                <a href="#formulario"
-                    class="cta-button px-10 py-6 text-xl flex items-center justify-center gap-4 w-full text-center">
-                    INICIAR MINHA ANÁLISE DE PERFIL
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- BLOCO DA ECONOMIA E LIBERDADE -->
-    <section class="py-20 px-6 md:px-12 lg:px-24 bg-[#1A1A1A]">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex-stretch grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- CARD 1: A Fuga dos Custos Ocultos -->
-                <div class="premium-card p-8 md:p-10 border-t-4 border-[#FF5400] flex flex-col h-full">
-                    <h3 class="text-2xl mb-6 uppercase leading-tight italic">Fuja dos Custos Ocultos do Mercado Tradicional</h3>
-                    <p class="text-on-surface/80 leading-relaxed mb-8">
-                        Ter e manter uma moto própria do jeito antigo custa caro. Em 4 anos, além da moto, você tiraria do próprio bolso:
-                    </p>
-                    <ul class="space-y-4 mb-10 flex-grow">
-                        <li class="flex items-center gap-3 text-on-surface/70">
-                            <span class="material-symbols-outlined text-red-500 font-bold">do_not_disturb_on</span>
-                            <span>Proteção Veicular e Seguro: <strong class="text-on-surface">R$ 9.120,00</strong></span>
-                        </li>
-                        <li class="flex items-center gap-3 text-on-surface/70">
-                            <span class="material-symbols-outlined text-red-500 font-bold">do_not_disturb_on</span>
-                            <span>Rastreador 24h: <strong class="text-on-surface">R$ 2.880,00</strong></span>
-                        </li>
-                        <li class="flex items-center gap-3 text-on-surface/70">
-                            <span class="material-symbols-outlined text-red-500 font-bold">do_not_disturb_on</span>
-                            <span>IPVA (4 anos): <strong class="text-on-surface">R$ 2.200,00</strong></span>
-                        </li>
-                        <li class="flex items-center gap-3 text-on-surface/70">
-                            <span class="material-symbols-outlined text-red-500 font-bold">do_not_disturb_on</span>
-                            <span>Emplacamento e Burocracia: <strong class="text-on-surface">R$ 980,00</strong></span>
-                        </li>
-                    </ul>
-                    <div class="pt-6 border-t border-white/5">
-                        <p class="text-[#FF5400] font-brand font-black text-lg leading-tight">
-                            No Plano Locação Inteligente, você economiza mais de R$ 15.000,00. Nós assumimos tudo isso para você.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- CARD 2: A Liberdade do 48º Mês -->
-                <div class="premium-card p-8 md:p-10 border-t-4 border-[#FF5400] flex flex-col h-full bg-[#242424] shadow-[0_10px_30px_rgba(0,0,0,0.4)]">
-                    <h3 class="text-2xl mb-6 uppercase leading-tight italic">O que acontece no final do contrato?</h3>
-                    <p class="text-on-surface/80 leading-relaxed mb-8">
-                        Aqui, você tem verdadeira Liberdade de Escolha. A sua Caução de R$ 1.100,00 fica guardada como garantia. Ao cumprir os 48 meses de contrato, você decide o que fazer com ela:
-                    </p>
-                    <ul class="space-y-6 flex-grow">
-                        <li class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-green-500 font-bold mt-1">check_circle</span>
-                            <p class="text-on-surface/90">
-                                <strong class="text-white block mb-1 uppercase text-sm tracking-widest text-green-500">Opção 1</strong>
-                                Você pode devolver a moto e receber os seus R$ 1.100,00 integralmente de volta na sua conta.
-                            </p>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="material-symbols-outlined text-green-500 font-bold mt-1">check_circle</span>
-                            <p class="text-on-surface/90">
-                                <strong class="text-white block mb-1 uppercase text-sm tracking-widest text-green-500">Opção 2</strong>
-                                Você pode exercer a sua Opção de Compra. Nós usamos a sua caução retida para quitar o valor residual, e a moto é transferida para o seu nome. Você vira o dono sem pagar nenhuma taxa extra de aquisição para nós!
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- BLOCO 5: PRÉ-REQUISITOS E ÁREA DE ATENDIMENTO -->
-    <section class="py-24 px-6 md:px-12 lg:px-24 bg-[#1A1A1A]">
-        <div class="desktop-max-width">
-            <div class="text-center mb-16">
-                <h2 class="font-brand font-black text-3xl md:text-5xl text-on-surface mb-6">
-                    Seu perfil se encaixa no Plano Locação Inteligente?
-                </h2>
-                <p class="text-xl text-on-surface/70 mb-10 leading-relaxed">
-                    Nós não dependemos de aprovação de bancos. Nossa análise é humana e focada em quem quer trabalhar de
-                    verdade. Confira os pré-requisitos obrigatórios para fazer parte da elite de parceiros <span class="text-[#FF5400]">G</span>e<span class="text-[#FF5400]">M</span>obbi:
-                </p>
-            </div>
-
-            <div class="space-y-4 mb-16">
-                <div class="flex items-start gap-4 bg-[#242424] p-6 rounded-xl border border-white/5 shadow-md hover:-translate-y-1 transition-all">
-                    <span class="material-symbols-outlined text-green-500 mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                    <p class="text-on-surface/90 text-lg"><strong>CNH Categoria A (Definitiva):</strong> Com no mínimo 2 anos de habilitação.</p>
-                </div>
-                <div class="flex items-start gap-4 bg-[#242424] p-6 rounded-xl border border-white/5 shadow-md hover:-translate-y-1 transition-all">
-                    <span class="material-symbols-outlined text-green-500 mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                    <p class="text-on-surface/90 text-lg"><strong>Idade Mínima:</strong> Ter 23 anos completos ou mais.</p>
-                </div>
-                <div class="flex items-start gap-4 bg-[#242424] p-6 rounded-xl border border-white/5 shadow-md hover:-translate-y-1 transition-all">
-                    <span class="material-symbols-outlined text-green-500 mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                    <p class="text-on-surface/90 text-lg"><strong>Garagem Segura:</strong> Possuir local fechado e coberto para a moto dormir com segurança.</p>
-                </div>
-                <div class="flex items-start gap-4 bg-[#242424] p-6 rounded-xl border border-white/5 shadow-md hover:-translate-y-1 transition-all">
-                    <span class="material-symbols-outlined text-green-500 mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                    <p class="text-on-surface/90 text-lg"><strong>Ficha Limpa:</strong> Não possuir antecedentes criminais.</p>
-                </div>
-                <div class="flex items-start gap-4 bg-[#242424] p-6 rounded-xl border border-white/5 shadow-md hover:-translate-y-1 transition-all">
-                    <span class="material-symbols-outlined text-green-500 mt-1" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                    <p class="text-on-surface/90 text-lg"><strong>Comprovante de Ganhos:</strong> Conseguir comprovar sua renda.</p>
-                </div>
-            </div>
-
-            <div class="p-10 bg-[#242424] border-l-4 border-[#FF5400] rounded-xl shadow-lg mb-16">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="material-symbols-outlined text-[#FF5400] text-3xl">location_on</span>
-                    <h4 class="font-brand font-black text-on-surface uppercase tracking-widest text-xl">ÁREA DE ATENDIMENTO EXCLUSIVA</h4>
-                </div>
-                <p class="text-on-surface/80 leading-relaxed text-lg">
-                    Para garantir a agilidade do nosso Suporte de Elite e Guincho rápido, no momento aprovamos
-                    exclusivamente moradores da região do <strong class="text-white">Vale dos Sinos e Serra Gaúcha</strong>.
-                </p>
-            </div>
-
-            <div class="flex justify-center mt-4">
-                <a href="#formulario" class="cta-button block text-center w-full md:w-auto px-12 py-6 text-xl">
-                    INICIAR MINHA ANÁLISE DE PERFIL
-                </a>
-            </div>
-        </div>
-    </section>
-    <!-- FAQ E CHAMADA FINAL -->
-    <section class="py-20 px-6 md:px-12 lg:px-24 bg-[#1A1A1A]">
-        <div class="desktop-max-width">
-            <div class="text-center mb-16">
-                <h2 class="font-brand font-black text-3xl md:text-5xl text-on-surface mb-6 uppercase leading-[1.2]">
-                    Ainda tem dúvidas? Na <span class="text-[#FF5400]">G</span>e<span class="text-[#FF5400]">M</span>obbi, o combinado não sai caro.
-                </h2>
-                <p class="text-xl text-on-surface/70 leading-relaxed">
-                    Transparência total desde o primeiro dia. Veja as respostas para as perguntas mais comuns de quem já
-                    está faturando com a nossa parceria:
-                </p>
-            </div>
-            <div class="space-y-4 mb-24">
-                <details name="faq" class="group bg-[#242424] border border-white/5 rounded-xl shadow-md overflow-hidden" open="">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-                        <span class="font-bold text-lg text-on-surface">1. O que acontece se eu quiser sair antes dos 48
-                            meses?</span>
-                        <span
-                            class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-                    </summary>
-                    <div class="px-6 pb-6 text-on-surface/70 leading-relaxed">
-                        A <span class="text-[#FF5400]">G</span>e<span class="text-[#FF5400]">M</span>obbi preza pela liberdade. Se precisar encerrar o contrato antes do prazo, você pode
-                        devolver a moto a qualquer momento. No entanto, por se tratar de um plano focado em aquisição
-                        final, o bônus da caução reversível só é aplicado ao final do ciclo de 48 meses. Para saídas
-                        antecipadas, aplicam-se as regras padrão de rescisão descritas no contrato, sem letras miúdas.
-                    </div>
-                </details>
-                <details name="faq" class="group bg-[#242424] border border-white/5 rounded-xl shadow-md overflow-hidden">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-                        <span class="font-bold text-lg text-on-surface">2. Quem paga as manutenções da moto?</span>
-                        <span
-                            class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-                    </summary>
-                    <div class="px-6 pb-6 text-on-surface/70 leading-relaxed">
-                        Como a moto será sua ao final do contrato, as manutenções preventivas (troca de óleo, pastilhas,
-                        pneus e relação) ficam sob responsabilidade do parceiro. Isso garante que você cuide bem do que
-                        será seu patrimônio. Nós garantimos o Seguro Total e o Rastreador.
-                    </div>
-                </details>
-                <details name="faq" class="group bg-[#242424] border border-white/5 rounded-xl shadow-md overflow-hidden">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-                        <span class="font-bold text-lg text-on-surface">3. A moto é realmente zero quilômetro?</span>
-                        <span
-                            class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-                    </summary>
-                    <div class="px-6 pb-6 text-on-surface/70 leading-relaxed">
-                        Sim! Todos os nossos novos parceiros do Plano Locação Inteligente recebem uma Honda CG 160 Fan
-                        Zero KM, retirada diretamente da concessionária para as suas mãos. Você é o primeiro e único
-                        condutor.
-                    </div>
-                </details>
-                <details name="faq" class="group bg-[#242424] border border-white/5 rounded-xl shadow-md overflow-hidden">
-                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
-                        <span class="font-bold text-lg text-on-surface">4. Posso usar a moto para lazer ou apenas para
-                            trabalho?</span>
-                        <span
-                            class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-                    </summary>
-                    <div class="px-6 pb-6 text-on-surface/70 leading-relaxed">
-                        A moto é sua ferramenta de liberdade. Você pode usá-la tanto para faturar nos aplicativos quanto
-                        para seus deslocamentos pessoais e lazer com sua família. Não há restrição de uso, desde que
-                        respeitadas as normas de segurança e o código de trânsito.
-                    </div>
-                </details>
-            </div>
-            <div class="premium-card p-6 md:p-12 text-center">
-                <h2 class="text-3xl md:text-5xl mb-4 uppercase leading-tight italic font-black">
-                    Chegou a hora de acelerar o seu futuro.
-                </h2>
-                <p class="text-lg mb-6">
-                    As vagas para novos parceiros no Vale dos Sinos e Serra Gaúcha são estritamente limitadas.
-                </p>
-                <a href="#formulario"
-                    class="cta-button w-full py-5 text-lg flex items-center justify-center gap-4 text-center inline-flex"
-                    INICIAR MINHA ANÁLISE DE PERFIL
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROVA SOCIAL (DEPOIMENTOS) -->
-    <section class="py-20 px-6 md:px-12 lg:px-24 bg-[#1A1A1A]">
-        <div class="desktop-max-width">
-            <div class="text-center mb-16">
-                <h2 class="font-brand font-black text-3xl md:text-5xl text-white mb-6 uppercase leading-tight">
-                    O que dizem os parceiros que já saíram do aluguel eterno.
-                </h2>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="premium-card p-8 border-t-4 border-[#FF5400] flex flex-col h-full hover:scale-[1.02] transition-transform">
-                    <div class="flex text-yellow-500 mb-4 tracking-tighter">
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                    </div>
-                    <p class="text-on-surface/90 italic mb-6 flex-grow leading-relaxed">
-                        "Peguei minha Fan 0KM e a economia com IPVA e seguro já valeu a pena. Plano perfeito para quem trabalha com entregas."
-                    </p>
-                    <div class="pt-4 border-t border-white/5">
-                        <strong class="text-white block font-brand">Mauricio P.</strong>
-                        <span class="text-xs text-[#FF5400] uppercase font-bold tracking-widest">Delivery</span>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="premium-card p-8 border-t-4 border-[#FF5400] flex flex-col h-full hover:scale-[1.02] transition-transform">
-                    <div class="flex text-yellow-500 mb-4 tracking-tighter">
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                    </div>
-                    <p class="text-on-surface/90 italic mb-6 flex-grow leading-relaxed">
-                        "Cansado de pagar aluguel e ficar sem nada no final. Agora rodo sabendo que a moto vai ser minha. Aprovação muito rápida e sem burocracia!"
-                    </p>
-                    <div class="pt-4 border-t border-white/5">
-                        <strong class="text-white block font-brand">Marcos T.</strong>
-                        <span class="text-xs text-[#FF5400] uppercase font-bold tracking-widest">Motoboy</span>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="premium-card p-8 border-t-4 border-[#FF5400] flex flex-col h-full hover:scale-[1.02] transition-transform">
-                    <div class="flex text-yellow-500 mb-4 tracking-tighter">
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                        <span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
-                    </div>
-                    <p class="text-on-surface/90 italic mb-6 flex-grow leading-relaxed">
-                        "A moto já vem equipada com protetor e suporte pro telefone, pronta pra rodar no iFood. Suporte excelente e transparente."
-                    </p>
-                    <div class="pt-4 border-t border-white/5">
-                        <strong class="text-white block font-brand">Rafael R.</strong>
-                        <span class="text-xs text-[#FF5400] uppercase font-bold tracking-widest">Entregador Ifood</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- RODAPÉ INSTITUCIONAL (Footer) -->
-<footer class="py-16 bg-[#1A1A1A] text-center border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <h3 class="font-brand font-black text-3xl tracking-tighter mb-2">
-                <span class="text-[#FF5400]">G</span>e<span class="text-[#FF5400]">M</span>obbi
-            </h3>
-            <p class="text-xs uppercase tracking-[0.2em] text-on-surface/40 mb-8">Base Operacional: Dois Irmãos / RS</p>
-            
-            <div class="flex items-center justify-center gap-2 mb-10 bg-white/5 w-fit mx-auto px-4 py-2 rounded-full border border-white/10">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
-                <span class="text-[10px] uppercase font-black tracking-widest text-on-surface/60">Ambiente Seguro e Protegido</span>
-            </div>
-
-            <p class="text-[10px] uppercase tracking-widest text-on-surface/20">© 2026 <span class="text-[#FF5400]">G</span>e<span class="text-[#FF5400]">M</span>obbi. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- SEÇÃO FORMULÁRIO (Inline) -->
-    <section id="formulario" class="py-20 px-6 md:px-12 bg-[#1A1A1A]">
-        <div class="max-w-lg mx-auto">
-            <h2 class="font-brand font-black text-3xl text-on-surface mb-8 text-center">
-                Faça sua Inscrição
-            </h2>
-            
-            <form id="qualificacaoForm" action="https://script.google.com/macros/s/AKfycbyT_rwjhNcIKBBzoLabI55dHdXwxLcYxGtI5xMhNuV3NpT-s2aDsq9C8qQnAzmKLd9ZLg/exec" method="POST">
-                <input type="hidden" name="cnh" id="hidden_cnh">
-                <input type="hidden" name="idade" id="hidden_idade">
-                <input type="hidden" name="ficha" id="hidden_ficha">
-                <input type="hidden" name="garagem" id="hidden_garagem">
-                <input type="hidden" name="finalidade" id="hidden_finalidade">
-                <input type="hidden" name="consciencia" id="hidden_consciencia">
-
-                <div class="step-content active" data-step="1">
-                    <div class="mb-6">
-                        <label class="block text-sm font-bold text-[#FF5400] uppercase tracking-widest mb-2">Campo 1</label>
-                        <h3 class="text-xl mb-4 text-on-surface">Qual o seu nome completo?</h3>
-                        <input type="text" id="nome-input" name="nome" class="form-input" placeholder="Seu nome completo" required>
-                    </div>
-
-                    <div class="mb-8">
-                        <label class="block text-sm font-bold text-[#FF5400] uppercase tracking-widest mb-2">Campo 2</label>
-                        <h3 class="text-xl mb-4 text-on-surface">Qual o seu melhor WhatsApp?</h3>
-                        <input type="tel" id="whatsapp-input" name="whatsapp" class="form-input" placeholder="51 999 999 999" maxlength="13" required>
-                        <p class="text-[10px] text-gray-400 mt-2 uppercase tracking-widest">Formato: DDD + Número</p>
-                    </div>
-                    
-                    <button type="button" class="btn-option btn-primary-form" onclick="handleStep1()">AVANÇAR</button>
-                </div>
-
-                <div class="step-content" data-step="2">
-                    <h3 class="text-xl mb-6 text-on-surface">Você possui CNH Categoria A definitiva há mais de 2 anos?</h3>
-                    <div class="space-y-3 mb-8">
-                        <button type="button" class="btn-option btn-primary-form" onclick="nextStep(2, 'Sim')">SIM</button>
-                        <button type="button" class="btn-option btn-secondary-form" onclick="nextStep(2, 'Não')">NÃO</button>
-                    </div>
-                </div>
-
-                <div class="step-content" data-step="3">
-                    <h3 class="text-xl mb-6 text-on-surface">Você tem 23 anos ou mais?</h3>
-                    <div class="space-y-3 mb-8">
-                        <button type="button" class="btn-option btn-primary-form" onclick="nextStep(3, 'Sim')">SIM</button>
-                        <button type="button" class="btn-option btn-secondary-form" onclick="nextStep(3, 'Não')">NÃO</button>
-                    </div>
-                </div>
-
-                <div class="step-content" data-step="4">
-                    <h3 class="text-xl mb-6 text-on-surface">Você possui ficha limpa?</h3>
-                    <div class="space-y-3 mb-8">
-                        <button type="button" class="btn-option btn-primary-form" onclick="nextStep(4, 'Sim')">SIM</button>
-                        <button type="button" class="btn-option btn-secondary-form" onclick="nextStep(4, 'Não')">NÃO</button>
-                    </div>
-                </div>
-
-                <div class="step-content" data-step="5">
-                    <h3 class="text-xl mb-6 text-on-surface">Em qual cidade você mora?</h3>
-                    <input type="text" name="cidade" class="form-input mb-8" required>
-                    <button type="button" class="btn-option btn-primary-form" onclick="nextStep(5)">AVANÇAR</button>
-                </div>
-
-                <div class="step-content" data-step="6">
-                    <h3 class="text-xl mb-6 text-on-surface">Você possui garagem para guarda a moto?</h3>
-                    <div class="space-y-3 mb-8">
-                        <button type="button" class="btn-option btn-primary-form" onclick="nextStep(6, 'Sim')">SIM</button>
-                        <button type="button" class="btn-option btn-secondary-form" onclick="nextStep(6, 'Não')">NÃO</button>
-                    </div>
-                </div>
-
-                <div class="step-content" data-step="7">
-                    <h3 class="text-xl mb-6 text-on-surface">Qual será a finalidade?</h3>
-                    <div class="space-y-3 mb-8">
-                        <button type="button" class="btn-option btn-primary-form" onclick="nextStep(7, 'Trabalho em App')">TRABALHO EM APP</button>
-                        <button type="button" class="btn-option btn-secondary-form" onclick="nextStep(7, 'Deslocamento Diário')">DESLOCAMENTO DIÁRIO</button>
-                    </div>
-                </div>
-
-                <div class="step-content" data-step="8">
-                    <h3 class="text-xl mb-6 text-on-surface uppercase italic">Atenção!</h3>
-                    <p class="text-gray-400 mb-6">Este é um Plano de Locação com Opção de Compra, NÃO um financiamento.</p>
-                    <button type="button" class="btn-option btn-primary-form" onclick="nextStep(8, 'Estou Ciente')">SIM, ESTOU CIENTE</button>
-                </div>
-
-                <div class="step-content" data-step="9">
-                    <h3 class="text-xl mb-6 text-on-surface">O investimento: caução R$ 1.100 + R$ 419 (1ª semana). Como pagar?</h3>
-                    <div class="space-y-4 mb-8">
-                        <label class="flex items-center gap-3 p-4 bg-[#242424] rounded-lg border border-white/5 cursor-pointer">
-                            <input type="radio" name="pagamento" value="A vista" class="text-[#FF5400]" required>
-                            <span class="text-on-surface">À vista</span>
-                        </label>
-                        <label class="flex items-center gap-3 p-4 bg-[#242424] rounded-lg border border-white/5 cursor-pointer">
-                            <input type="radio" name="pagamento" value="Cartão" class="text-[#FF5400]">
-                            <span class="text-on-surface">Parcelar no cartão</span>
-                        </label>
-                        <label class="flex items-center gap-3 p-4 bg-[#242424] rounded-lg border border-white/5 cursor-pointer">
-                            <input type="radio" name="pagamento" value="Não tenho" class="text-[#FF5400]">
-                            <span class="text-on-surface">Não tenho agora</span>
-                        </label>
-                    </div>
-                    <button type="submit" id="btnEnviar" class="btn-option btn-primary-form">ENVIAR</button>
+</div>
                 </div>
 
                 <div id="msgSucesso" class="step-content text-center">
-                    <span class="material-symbols-outlined text-green-500 text-6xl mb-6">task_alt</span>
-                    <h2 class="font-brand font-black text-2xl text-white mb-6 uppercase">ANÁLISE INICIADA!</h2>
+                    <h2 class="font-bold text-2xl text-green-500 mb-4">ANÁLISE ENVIADA!</h2>
                     <p class="text-gray-400 mb-6">Entraremos em contato em até 24h.</p>
-                    <button type="button" class="btn-option btn-primary-form" onclick="location.reload()">ENVIAR NOVO</button>
                 </div>
             </form>
         </div>
-    </section>
+    </div>
 
-<script>
-        const form = document.getElementById('qualificacaoForm');
-        const steps = document.querySelectorAll('.step-content');
-        const msgSucesso = document.getElementById('msgSucesso');
-
-        // Dispara Pixel ao clicar no link do formulário
-        document.querySelectorAll('a[href="#formulario"]').forEach(link => {
-            link.addEventListener('click', (e) => {
+    <script>
+        var modalAtivo = false;
+        
+        function abrirModal() {
+            if(modalAtivo) return;
+            modalAtivo = true;
+            document.getElementById('modalFormulario').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(function(){
+                var input = document.getElementById('nome-input');
+                if(input) input.focus();
+            }, 200);
+        }
+        
+        function fecharModal() {
+            modalAtivo = false;
+            document.getElementById('modalFormulario').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        document.querySelectorAll('a[href="#formulario"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
                 if (typeof fbq === 'function') {
                     fbq('track', 'InitiateCheckout');
                 }
+                abrirModal();
             });
         });
 
-        const whatsappInput = document.getElementById('whatsapp-input');
-        const nomeInput = document.getElementById('nome-input');
+        document.getElementById('modalFormulario').addEventListener('click', function(e) {
+            if (e.target.id === 'modalFormulario') {
+                fecharModal();
+            }
+        });
+
+        var form = document.getElementById('qualificacaoForm');
+        var steps = document.querySelectorAll('.step-content');
+        var msgSucesso = document.getElementById('msgSucesso');
+        var whatsappInput = document.getElementById('whatsapp-input');
+        var nomeInput = document.getElementById('nome-input');
 
         function handleStep1() {
-            const nome = nomeInput.value.trim();
-            const whatsapp = whatsappInput.value.replace(/\D/g, '');
+            var nome = nomeInput.value.trim();
+            var whatsapp = whatsappInput.value.replace(/\D/g, '');
 
             if (nome === "") {
-                alert("Por favor, preencha seu nome completo.");
+                alert("Preencha seu nome.");
                 nomeInput.focus();
                 return;
             }
 
             if (whatsapp.length < 11) {
-                alert("Preencha o WhatsApp com DDD + Número.");
+                alert("Preencha o WhatsApp com DDD.");
                 whatsappInput.focus();
                 return;
             }
@@ -1297,8 +977,6 @@
         }
 
         function nextStep(currentStep, value) {
-            const next = document.querySelector('[data-step="' + (currentStep + 1) + '"]');
-            
             if (currentStep === 2) document.getElementById('hidden_cnh').value = value;
             if (currentStep === 3) document.getElementById('hidden_idade').value = value;
             if (currentStep === 4) document.getElementById('hidden_ficha').value = value;
@@ -1306,41 +984,40 @@
             if (currentStep === 7) document.getElementById('hidden_finalidade').value = value;
             if (currentStep === 8) document.getElementById('hidden_consciencia').value = value;
 
+            var next = document.querySelector('[data-step="' + (currentStep + 1) + '"]');
             if (next) {
-                steps.forEach(s => s.classList.remove('active'));
+                steps.forEach(function(s) { s.classList.remove('active'); });
                 next.classList.add('active');
             }
         }
 
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
-            const btn = document.getElementById('btnEnviar');
+            var btn = document.getElementById('btnEnviar');
             btn.innerHTML = "ENVIANDO...";
             btn.disabled = true;
 
-            const formData = new FormData(form);
+            var formData = new FormData(form);
             
             fetch(form.action, {
                 method: 'POST',
                 body: formData,
                 mode: 'no-cors'
             })
-            .then(() => {
+            .then(function() {
                 if (typeof fbq === 'function') {
                     fbq('track', 'Lead');
                 }
-                
-                form.style.display = 'none';
+                steps.forEach(function(s) { s.classList.remove('active'); });
                 msgSucesso.classList.add('active');
             })
-            .catch(error => {
+            .catch(function(error) {
                 console.error('Erro:', error);
-                alert('Erro ao enviar. Tente novamente.');
+                alert('Erro ao enviar.');
                 btn.innerHTML = "ENVIAR";
                 btn.disabled = false;
             });
         });
     </script>
 </body>
-
 </html>
