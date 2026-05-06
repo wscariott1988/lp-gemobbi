@@ -208,7 +208,7 @@
             background-color: #242424;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            border: 1px border-white/5;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         @keyframes pulse-orange {
@@ -422,20 +422,6 @@
         ============================================ */
         @media (min-width: 769px) {
 
-            /* 1. BOTOES (CTAs) */
-            .cta-button {
-                width: max-content !important;
-                display: inline-block !important;
-                padding: 18px 48px !important;
-                margin-top: 0 !important;
-            }
-
-            .flex.justify-center > .cta-button,
-            .flex.justify-center .cta-button {
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
-
             .hero-section .cta-button {
                 margin-left: 0 !important;
                 margin-right: auto !important;
@@ -451,17 +437,10 @@
                 padding-right: 1.5rem !important;
             }
 
-            /* 3. HERO: LAYOUT CINEMATICO CENTRALIZADO */
+            /* 3. HERO: LAYOUT CINEMATICO */
             .hero-section > div {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                justify-content: center !important;
-                text-align: center !important;
                 max-width: 1280px !important;
                 margin: 0 auto !important;
-                gap: 0 !important;
-                grid-template-columns: unset !important;
             }
 
             /* Bloco de texto: centralizado, largura de leitura confortavel */
@@ -1054,7 +1033,7 @@
                     As vagas para novos parceiros no Vale dos Sinos e Serra Gaúcha são estritamente limitadas.
                 </p>
                 <a href="#formulario"
-                    class="cta-button w-full py-5 text-lg flex items-center justify-center gap-4 text-center inline-flex"
+                    class="cta-button w-full py-5 text-lg flex items-center justify-center gap-4 text-center inline-flex">
                     INICIAR MINHA ANÁLISE DE PERFIL
                 </a>
             </div>
