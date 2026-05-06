@@ -1138,10 +1138,11 @@
                 Faça sua Inscrição
             </h2>
             
-            <form id="qualificacaoForm" action="https://script.google.com/macros/s/AKfycbyT_rwjhNcIKBBzoLabI55dHdXwxLcYxGtI5xMhNuV3NpT-s2aDsq9C8qQnAzmKLd9ZLg/exec" method="POST">
+            <form id="qualificacaoForm" action="https://script.google.com/macros/s/AKfycbz5cIMigWb4Cv88pP8w591az-QF-KibVT8bnvE555u7lG0gxHpTrzJ2CvUNgwZlFpK8_w/exec" method="POST">
                 <input type="hidden" name="cnh" id="hidden_cnh">
                 <input type="hidden" name="idade" id="hidden_idade">
                 <input type="hidden" name="ficha" id="hidden_ficha">
+                <input type="hidden" name="cidade" id="hidden_cidade">
                 <input type="hidden" name="garagem" id="hidden_garagem">
                 <input type="hidden" name="finalidade" id="hidden_finalidade">
                 <input type="hidden" name="consciencia" id="hidden_consciencia">
@@ -1188,9 +1189,14 @@
                 </div>
 
                 <div class="step-content" data-step="5">
-                    <h3 class="text-xl mb-6 text-on-surface">Em qual cidade você mora?</h3>
-                    <input type="text" name="cidade" class="form-input mb-8" required>
-                    <button type="button" class="btn-option btn-primary-form" onclick="nextStep(5)">AVANÇAR</button>
+                    <h3 class="text-xl mb-6 text-on-surface">Qual sua cidade?</h3>
+                    <div class="space-y-3 mb-8">
+                        <button type="button" class="btn-option btn-primary-form" onclick="nextStep(5, 'Novo Hamburgo')">NOVO HAMBURGO</button>
+                        <button type="button" class="btn-option btn-secondary-form" onclick="nextStep(5, 'São Leopoldo')">SÃO LEOPOLDO</button>
+                        <button type="button" class="btn-option btn-secondary-form" onclick="nextStep(5, 'Campo Bom')">CAMPO BOM</button>
+                        <button type="button" class="btn-option btn-secondary-form" onclick="nextStep(5, 'Estância Velha')">ESTÂNCIA VELHA</button>
+                        <button type="button" class="btn-option btn-secondary-form" onclick="nextStep(5, 'Outra')">OUTRA</button>
+                    </div>
                 </div>
 
                 <div class="step-content" data-step="6">
@@ -1313,6 +1319,7 @@
             if (currentStep === 2) document.getElementById('hidden_cnh').value = value;
             if (currentStep === 3) document.getElementById('hidden_idade').value = value;
             if (currentStep === 4) document.getElementById('hidden_ficha').value = value;
+            if (currentStep === 5) document.getElementById('hidden_cidade').value = value;
             if (currentStep === 6) document.getElementById('hidden_garagem').value = value;
             if (currentStep === 7) document.getElementById('hidden_finalidade').value = value;
             if (currentStep === 8) document.getElementById('hidden_consciencia').value = value;
