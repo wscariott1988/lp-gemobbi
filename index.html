@@ -220,8 +220,11 @@
         #modalFormulario {
             display: none;
             position: fixed;
-            inset: 0;
-            z-index: 100;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9999;
             background-color: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(8px);
             align-items: center;
@@ -242,6 +245,7 @@
             padding: 32px;
             position: relative;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            pointer-events: auto;
         }
 
         .step-content {
@@ -561,37 +565,30 @@
     </section>
     <!-- PLANOS DE LOCAÇÃO -->
     <section class="py-20 px-6 md:px-12 lg:px-24 bg-[#1A1A1A]">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-3xl mx-auto">
             <h2 class="font-brand font-black text-3xl md:text-5xl text-on-surface mb-12 text-center">
-                Planos de Locação de Motos
+                O que está incluso no plano?
             </h2>
-            <p class="text-on-surface/70 text-center text-lg mb-8">O que está incluso no plano?</p>
             <table class="w-full border-collapse bg-[#242424] rounded-xl overflow-hidden shadow-lg">
-                <thead>
-                    <tr class="bg-[#333]">
-                        <th class="p-4 text-left text-on-surface font-bold">Plano</th>
-                        <th class="p-4 text-center text-on-surface font-bold">Semanal</th>
-                    </tr>
-                </thead>
                 <tbody>
                     <tr class="border-t border-white/10">
-                        <td class="p-4 text-on-surface">Valor</td>
+                        <td class="p-4 text-on-surface font-bold">Valor</td>
                         <td class="p-4 text-center text-[#FF5400] font-bold">R$ 399/semana</td>
                     </tr>
                     <tr class="border-t border-white/10">
-                        <td class="p-4 text-on-surface">Seguro/Proteção</td>
+                        <td class="p-4 text-on-surface font-bold">Seguro/Proteção</td>
                         <td class="p-4 text-center text-green-500">✓ Incluso</td>
                     </tr>
                     <tr class="border-t border-white/10">
-                        <td class="p-4 text-on-surface">Rastreador</td>
+                        <td class="p-4 text-on-surface font-bold">Rastreador</td>
                         <td class="p-4 text-center text-green-500">✓ Incluso</td>
                     </tr>
                     <tr class="border-t border-white/10">
-                        <td class="p-4 text-on-surface">IPVA</td>
+                        <td class="p-4 text-on-surface font-bold">IPVA</td>
                         <td class="p-4 text-center text-green-500">✓ Incluso</td>
                     </tr>
                     <tr class="border-t border-white/10">
-                        <td class="p-4 text-on-surface">Opção de Compra</td>
+                        <td class="p-4 text-on-surface font-bold">Opção de Compra</td>
                         <td class="p-4 text-center text-green-500">✓ Sim</td>
                     </tr>
                 </tbody>
@@ -1288,6 +1285,7 @@
         document.querySelectorAll('a[href="#formulario"]').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
                 
                 // Dispara evento do Pixel Meta ao iniciar a análise (checkout)
                 if (typeof fbq === 'function') {
@@ -1296,6 +1294,8 @@
 
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
+                document.body.style.position = 'fixed';
+                document.body.style.width = '100%';
                 
                 // Foco automático no primeiro campo (nome)
                 setTimeout(() => {
@@ -1308,7 +1308,9 @@
         // Fechar Modal
         window.fecharModal = function() {
             modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
             // Reset do form após fechar
             setTimeout(() => {
                 steps.forEach(s => s.classList.remove('active'));
