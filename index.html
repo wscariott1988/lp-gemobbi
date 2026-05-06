@@ -1342,14 +1342,16 @@
             btn.innerHTML = "ENVIANDO...";
             btn.disabled = true;
 
-            // Garante que o WhatsApp vá apenas com números
-            const whatsappInput = document.getElementById('whatsapp-input');
-            whatsappInput.value = whatsappInput.value.replace(/\D/g, '');
-
-            const nomeInput = document.getElementById('nome-input');
-            nomeInput.value = nomeInput.value.trim();
-
             const formData = new FormData(form);
+            
+            // Limpeza manual dos dados para garantir o envio
+            const rawNome = document.getElementById('nome-input').value.trim();
+            const rawWhatsapp = document.getElementById('whatsapp-input').value;
+            const cleanWhatsapp = rawWhatsapp.replace(/\D/g, '');
+            
+            formData.set('nome', rawNome);
+            formData.set('whatsapp', cleanWhatsapp);
+            formData.set('telefone', cleanWhatsapp); 
             
             fetch(form.action, {
                 method: 'POST',
