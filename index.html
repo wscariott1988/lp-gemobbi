@@ -1134,7 +1134,7 @@
     <!-- SEÇÃO FORMULÁRIO (Inline) -->
     <section id="formulario" class="py-20 px-6 md:px-12 bg-[#1A1A1A]">
         <div class="max-w-lg mx-auto">
-            <h2 class="font-brand font-black text-3xl text-on-surface mb-8 text-center">
+            <h2 id="titulo-formulario" class="font-brand font-black text-3xl text-on-surface mb-8 text-center">
                 Faça sua Inscrição
             </h2>
             
@@ -1306,6 +1306,10 @@
             }
 
             nextStep(1);
+            
+            // Oculta o título ao iniciar o cadastro
+            const titulo = document.getElementById('titulo-formulario');
+            if (titulo) titulo.style.display = 'none';
         }
 
         function handleStep5() {
