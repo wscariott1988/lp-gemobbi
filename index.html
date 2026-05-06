@@ -269,6 +269,7 @@
             z-index: 1;
             -webkit-user-select: text;
             user-select: text;
+            touch-action: manipulation;
         }
 
         .form-input:focus {
@@ -280,6 +281,11 @@
 
         .form-input:active {
             border-color: #FF7722;
+        }
+
+        input, button, select, textarea {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
         }
 
         @media (max-width: 768px) {
@@ -301,7 +307,7 @@
             border-radius: 8px;
             font-weight: 700;
             text-transform: uppercase;
-            transition: all 0.2s;
+            transition: background-color 0.2s, transform 0.1s;
             cursor: pointer;
             text-align: center;
             font-size: 14px;
@@ -320,8 +326,11 @@
         }
 
         .btn-option:hover {
-            transform: scale(1.02);
             filter: brightness(1.1);
+        }
+        
+        .btn-option:active {
+            transform: scale(0.98);
         }
 
         .close-modal {
@@ -1311,10 +1320,12 @@
                 document.body.style.width = '100%';
                 
                 // Foco automático no primeiro campo (nome)
-                setTimeout(() => {
+                requestAnimationFrame(() => {
                     const firstInput = modal.querySelector('input[name="nome"]');
-                    if(firstInput) firstInput.focus();
-                }, 400); 
+                    if(firstInput) {
+                        firstInput.focus();
+                    }
+                }); 
             });
         });
 
@@ -1342,6 +1353,17 @@
         // Máscara e Validação do Passo 1
         const whatsappInput = document.getElementById('whatsapp-input');
         const nomeInput = document.getElementById('nome-input');
+        const formInputs = document.querySelectorAll('.form-input');
+        
+        formInputs.forEach(input => {
+            input.addEventListener('touchstart', (e) => {
+                e.stopPropagation();
+            }, { passive: true });
+        });
+        
+        function focusInput(inputEl) {
+            inputEl.focus();
+        }
 
         whatsappInput.addEventListener('input', (e) => {
             let value = e.target.value.replace(/\D/g, '');
