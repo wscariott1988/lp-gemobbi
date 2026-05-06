@@ -1189,14 +1189,9 @@
                 </div>
 
                 <div class="step-content" data-step="5">
-                    <h3 class="text-xl mb-6 text-on-surface">Qual sua cidade?</h3>
-                    <div class="space-y-3 mb-8">
-                        <button type="button" class="btn-option btn-primary-form" onclick="nextStep(5, 'Novo Hamburgo')">NOVO HAMBURGO</button>
-                        <button type="button" class="btn-option btn-secondary-form" onclick="nextStep(5, 'São Leopoldo')">SÃO LEOPOLDO</button>
-                        <button type="button" class="btn-option btn-secondary-form" onclick="nextStep(5, 'Campo Bom')">CAMPO BOM</button>
-                        <button type="button" class="btn-option btn-secondary-form" onclick="nextStep(5, 'Estância Velha')">ESTÂNCIA VELHA</button>
-                        <button type="button" class="btn-option btn-secondary-form" onclick="nextStep(5, 'Outra')">OUTRA</button>
-                    </div>
+                    <h3 class="text-xl mb-6 text-on-surface">Em qual cidade você mora?</h3>
+                    <input type="text" id="cidade-input" class="form-input mb-8" placeholder="Digite o nome da sua cidade" required>
+                    <button type="button" class="btn-option btn-primary-form" onclick="handleStep5()">AVANÇAR</button>
                 </div>
 
                 <div class="step-content" data-step="6">
@@ -1311,6 +1306,19 @@
             }
 
             nextStep(1);
+        }
+
+        function handleStep5() {
+            const cidadeInput = document.getElementById('cidade-input');
+            const value = cidadeInput.value.trim();
+            
+            if (value === "") {
+                alert("Por favor, informe sua cidade.");
+                cidadeInput.focus();
+                return;
+            }
+            
+            nextStep(5, value);
         }
 
         function nextStep(currentStep, value) {
