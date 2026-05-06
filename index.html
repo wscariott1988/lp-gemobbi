@@ -1342,6 +1342,13 @@
             btn.innerHTML = "ENVIANDO...";
             btn.disabled = true;
 
+            // Garante que o WhatsApp vá apenas com números
+            const whatsappInput = document.getElementById('whatsapp-input');
+            whatsappInput.value = whatsappInput.value.replace(/\D/g, '');
+
+            const nomeInput = document.getElementById('nome-input');
+            nomeInput.value = nomeInput.value.trim();
+
             const formData = new FormData(form);
             
             fetch(form.action, {
