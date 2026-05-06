@@ -560,7 +560,7 @@
                 <tbody>
                     <tr class="border-t border-white/10">
                         <td class="p-4 text-on-surface font-bold">Valor</td>
-                        <td class="p-4 text-center text-[#FF5400] font-bold"><span class="line-through text-on-surface/50 text-sm">R$ 419</span> R$ 399/semana</td>
+                        <td class="p-4 text-center text-[#FF5400] font-bold whitespace-nowrap"><span class="line-through text-on-surface/50 text-sm mr-1">R$ 419</span> R$ 399/semana</td>
                     </tr>
                     <tr class="border-t border-white/10">
                         <td class="p-4 text-on-surface font-bold">Seguro/Proteção</td>
@@ -1229,11 +1229,22 @@
                     <button type="submit" id="btnEnviar" class="btn-option btn-primary-form">ENVIAR</button>
                 </div>
 
-                <div id="msgSucesso" class="step-content text-center">
-                    <span class="material-symbols-outlined text-green-500 text-6xl mb-6">task_alt</span>
-                    <h2 class="font-brand font-black text-2xl text-white mb-6 uppercase">ANÁLISE INICIADA!</h2>
-                    <p class="text-gray-400 mb-6">Entraremos em contato em até 24h.</p>
-                    <button type="button" class="btn-option btn-primary-form" onclick="location.reload()">ENVIAR NOVO</button>
+                <div id="msgSucesso" class="step-content text-center py-10">
+                    <span class="material-symbols-outlined text-green-500 text-7xl mb-6">check_circle</span>
+                    <h2 class="font-brand font-black text-3xl text-white mb-4 uppercase">ANÁLISE INICIADA!</h2>
+                    <p class="text-on-surface/70 text-lg mb-10 leading-relaxed">
+                        Seu perfil foi enviado com sucesso. Nossa equipe entrará em contato em até 24 horas pelo WhatsApp.
+                    </p>
+                    
+                    <div class="flex flex-col gap-4">
+                        <a href="tel:+5551995167386" class="cta-button w-full py-5 text-lg flex items-center justify-center gap-4">
+                            <span class="material-symbols-outlined">contact_phone</span>
+                            SALVAR CONTATO DA LOCADORA
+                        </a>
+                        <button type="button" class="text-on-surface/40 text-xs uppercase tracking-widest hover:text-[#FF5400] transition-colors mt-4" onclick="location.reload()">
+                            ENVIAR NOVO FORMULÁRIO
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -1288,6 +1299,19 @@
             if (next) {
                 steps.forEach(s => s.classList.remove('active'));
                 next.classList.add('active');
+                
+                // Rola suavemente para o topo do formulário a cada etapa
+                const formSection = document.getElementById('formulario');
+                const offset = 20; 
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = formSection.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
             }
         }
 
