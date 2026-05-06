@@ -1245,11 +1245,25 @@
                 Seu perfil foi enviado com sucesso. Nossa equipe entrará em contato em até 24 horas pelo WhatsApp.
             </p>
             
-            <div class="flex flex-col gap-4">
-                <a href="tel:+5551995167386" class="cta-button w-full py-5 text-lg flex items-center justify-center gap-4">
+            <div class="flex flex-col gap-6">
+                <!-- Versão Mobile: Botão para o discador -->
+                <a href="tel:+5551995167386" class="cta-button w-full py-5 text-lg flex items-center justify-center gap-4 md:hidden">
                     <span class="material-symbols-outlined">contact_phone</span>
                     SALVAR CONTATO DA LOCADORA
                 </a>
+
+                <!-- Versão Desktop: Mensagem e link do WhatsApp -->
+                <div class="hidden md:block space-y-6">
+                    <p class="text-on-surface/80 text-lg">
+                        Quer agilizar sua análise? <br>
+                        Chame-nos agora mesmo no WhatsApp:
+                    </p>
+                    <a href="https://wa.me/5551995167386" target="_blank" class="inline-flex items-center gap-3 text-3xl font-bold text-[#FF5400] hover:scale-105 transition-transform">
+                        <span class="material-symbols-outlined">chat</span>
+                        (51) 99516-7386
+                    </a>
+                </div>
+
                 <button type="button" class="text-on-surface/40 text-xs uppercase tracking-widest hover:text-[#FF5400] transition-colors mt-4" onclick="location.reload()">
                     ENVIAR NOVO FORMULÁRIO
                 </button>
