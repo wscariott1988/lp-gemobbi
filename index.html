@@ -560,7 +560,7 @@
                 <tbody>
                     <tr class="border-t border-white/10">
                         <td class="p-4 text-on-surface font-bold">Valor</td>
-                        <td class="p-4 text-center text-[#FF5400] font-bold whitespace-nowrap"><span class="line-through text-on-surface/50 text-sm mr-1">R$ 419</span> R$ 399/semana</td>
+                        <td class="p-4 text-center text-[#FF5400] font-bold whitespace-nowrap"><span class="line-through text-on-surface/50 text-sm mr-1">R$&nbsp;419</span> R$&nbsp;399/semana</td>
                     </tr>
                     <tr class="border-t border-white/10">
                         <td class="p-4 text-on-surface font-bold">Seguro/Proteção</td>
@@ -1175,7 +1175,7 @@
                 </div>
 
                 <div class="step-content" data-step="4">
-                    <h3 class="text-xl mb-6 text-on-surface">Você possui ficha limpa?</h3>
+                    <h3 class="text-xl mb-6 text-on-surface">Você possui ficha limpa sem antecedentes criminais?</h3>
                     <div class="space-y-3 mb-8">
                         <button type="button" class="btn-option btn-primary-form" onclick="nextStep(4, 'Sim')">SIM</button>
                         <button type="button" class="btn-option btn-secondary-form" onclick="nextStep(4, 'Não')">NÃO</button>
@@ -1229,24 +1229,26 @@
                     <button type="submit" id="btnEnviar" class="btn-option btn-primary-form">ENVIAR</button>
                 </div>
 
-                <div id="msgSucesso" class="step-content text-center py-10">
-                    <span class="material-symbols-outlined text-green-500 text-7xl mb-6">check_circle</span>
-                    <h2 class="font-brand font-black text-3xl text-white mb-4 uppercase">ANÁLISE INICIADA!</h2>
-                    <p class="text-on-surface/70 text-lg mb-10 leading-relaxed">
-                        Seu perfil foi enviado com sucesso. Nossa equipe entrará em contato em até 24 horas pelo WhatsApp.
-                    </p>
-                    
-                    <div class="flex flex-col gap-4">
-                        <a href="tel:+5551995167386" class="cta-button w-full py-5 text-lg flex items-center justify-center gap-4">
-                            <span class="material-symbols-outlined">contact_phone</span>
-                            SALVAR CONTATO DA LOCADORA
-                        </a>
-                        <button type="button" class="text-on-surface/40 text-xs uppercase tracking-widest hover:text-[#FF5400] transition-colors mt-4" onclick="location.reload()">
-                            ENVIAR NOVO FORMULÁRIO
-                        </button>
-                    </div>
                 </div>
             </form>
+
+            <div id="msgSucesso" class="step-content text-center py-10">
+                <span class="material-symbols-outlined text-green-500 text-7xl mb-6">check_circle</span>
+                <h2 class="font-brand font-black text-3xl text-white mb-4 uppercase">ANÁLISE INICIADA!</h2>
+                <p class="text-on-surface/70 text-lg mb-10 leading-relaxed">
+                    Seu perfil foi enviado com sucesso. Nossa equipe entrará em contato em até 24 horas pelo WhatsApp.
+                </p>
+                
+                <div class="flex flex-col gap-4">
+                    <a href="tel:+5551995167386" class="cta-button w-full py-5 text-lg flex items-center justify-center gap-4">
+                        <span class="material-symbols-outlined">contact_phone</span>
+                        SALVAR CONTATO DA LOCADORA
+                    </a>
+                    <button type="button" class="text-on-surface/40 text-xs uppercase tracking-widest hover:text-[#FF5400] transition-colors mt-4" onclick="location.reload()">
+                        ENVIAR NOVO FORMULÁRIO
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
 
