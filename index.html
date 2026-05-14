@@ -1236,6 +1236,15 @@
                     <button type="submit" id="btnEnviar" class="btn-option btn-primary-form">ENVIAR</button>
                 </div>
 
+                <div class="step-content" data-step="10">
+                    <h3 class="text-xl mb-6 text-on-surface">Notamos que você não possui o valor do investimento inicial no momento. Como trabalhamos com uma frota limitada e a taxa de retirada de R$ 1.519,00 é obrigatória, por que deveríamos entrar em contato com você?</h3>
+                    <textarea name="justificativa" id="justificativa-input" class="form-input mb-8" rows="4" placeholder="Sua justificativa..." required></textarea>
+                    <div class="space-y-3 mb-8">
+                        <button type="submit" id="btnEnviarJustificativa" class="btn-option btn-primary-form">Enviar minha justificativa</button>
+                        <button type="button" class="btn-option btn-secondary-form" onclick="location.reload()">Desistir do contato</button>
+                    </div>
+                </div>
+
             </form>
         </div>
 
@@ -1267,6 +1276,21 @@
 
                 <button type="button" class="text-on-surface/40 text-xs uppercase tracking-widest hover:text-[#FF5400] transition-colors mt-4" onclick="location.reload()">
                     ENVIAR NOVO FORMULÁRIO
+                </button>
+            </div>
+        </div>
+
+        <div id="msgNegado" class="hidden max-w-lg mx-auto text-center py-10">
+            <span class="material-symbols-outlined text-orange-500 text-7xl mb-6">info</span>
+            <h2 class="font-brand font-black text-3xl text-white mb-4 uppercase">RECEBEMOS SEUS DADOS</h2>
+            <p class="text-on-surface/70 text-lg mb-10 leading-relaxed">
+                Infelizmente, para prosseguir com a locação, é necessário possuir o valor da caução no momento da retirada. <br><br>
+                Salvamos seu contato e avisaremos você assim que tivermos novas condições ou promoções que facilitem sua entrada!
+            </p>
+            
+            <div class="flex flex-col gap-6">
+                <button type="button" class="text-on-surface/40 text-xs uppercase tracking-widest hover:text-[#FF5400] transition-colors mt-4" onclick="location.reload()">
+                    VOLTAR AO INÍCIO
                 </button>
             </div>
         </div>
@@ -1357,7 +1381,18 @@
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const btn = document.getElementById('btnEnviar');
+            
+            const pagamentoValue = form.querySelector('input[name="pagamento"]:checked')?.value;
+            const isStep9Active = document.querySelector('[data-step="9"]').classList.contains('active');
+
+            if (isStep9Active && pagamentoValue === 'Não tenho') {
+                nextStep(9, 'Não tenho');
+                return;
+            }
+
+            const activeStep = document.querySelector('.step-content.active');
+            const btn = activeStep.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
             btn.innerHTML = "ENVIANDO...";
             btn.disabled = true;
 
@@ -1378,18 +1413,25 @@
                 mode: 'no-cors'
             })
             .then(() => {
-                if (typeof fbq === 'function') {
-                    fbq('track', 'Lead');
-                }
-                
                 form.style.display = 'none';
-                msgSucesso.classList.remove('hidden');
-                msgSucesso.classList.add('block');
+                
+                if (pagamentoValue === 'Não tenho') {
+                    // Redirecionamento falso para evitar o disparo do pixel de Lead
+                    window.location.href = 'analise-recebida.html';
+                } else {
+                    // Lead qualificado - dispara pixel
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Lead');
+                    }
+                    
+                    msgSucesso.classList.remove('hidden');
+                    msgSucesso.classList.add('block');
+                }
             })
             .catch(error => {
                 console.error('Erro:', error);
                 alert('Erro ao enviar. Tente novamente.');
-                btn.innerHTML = "ENVIAR";
+                btn.innerHTML = originalText;
                 btn.disabled = false;
             });
         });

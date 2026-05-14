@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>GeMobbi - Análise Recebida</title>
+
+    <!-- Google Fonts: Montserrat com display=swap (nao bloqueia render) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+
+    <!-- Material Symbols (carregado uma unica vez) -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS (Compilado Estático) -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            background-color: #1A1A1A;
+            color: #E0E0E0;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900 !important;
+            color: #FFFFFF;
+        }
+
+        .cta-button {
+            background-color: #FF5400;
+            color: #FFFFFF;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-radius: 8px;
+            padding: 16px 24px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .cta-button:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+            box-shadow: 0px 6px 20px rgba(255, 84, 0, 0.6);
+        }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1330774552435981');
+    fbq('track', 'PageView');
+    // NOTA IMPORTANTE: O EVENTO DE "Lead" FOI REMOVIDO DESTA PÁGINA DE PROPÓSITO.
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1330774552435981&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body class="selection:bg-primary-container selection:text-white">
+
+    <div class="max-w-lg mx-auto text-center py-10 px-6">
+        <span class="material-symbols-outlined text-green-500 text-7xl mb-6">check_circle</span>
+        <h2 class="font-brand font-black text-3xl text-white mb-4 uppercase">JUSTIFICATIVA RECEBIDA!</h2>
+        <p class="text-on-surface/70 text-lg mb-10 leading-relaxed">
+            Sua justificativa e seus dados foram registrados com sucesso. Nossa equipe fará uma análise interna e, caso haja disponibilidade na frota para o seu perfil nestas condições, entraremos em contato futuramente.
+        </p>
+        
+        <div class="flex flex-col gap-6">
+            <a href="index.html" class="cta-button">
+                VOLTAR AO INÍCIO
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
