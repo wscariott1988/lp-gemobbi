@@ -1138,7 +1138,7 @@
                 Faça sua Inscrição
             </h2>
             
-            <form id="qualificacaoForm" action="https://script.google.com/macros/s/AKfycbx7VqNNdH6LKAMiLKlaBErzvheVD9ty2pHadD0Fi7P23LfsRPz5RKxGytNfksJnG4RFZg/exec" method="POST">
+            <form id="qualificacaoForm" action="https://script.google.com/macros/s/AKfycbxYhRy9tDi7Wr0Kr1aWPW7P-iyVjieejvh9K16dm4t9OlhBcI943QS5RgtoCTEnqONL8Q/exec" method="POST">
                 <input type="hidden" name="cnh" id="hidden_cnh">
                 <input type="hidden" name="idade" id="hidden_idade">
                 <input type="hidden" name="ficha" id="hidden_ficha">
@@ -1305,21 +1305,10 @@
         document.querySelectorAll('a[href="#formulario"]').forEach(link => {
             link.addEventListener('click', (e) => {
                 if (typeof fbq === 'function') {
-                    fbq('track', 'InitiateCheckout', {
-                        eventID: 'ev_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now()
-                    });
+                    fbq('track', 'InitiateCheckout');
                 }
             });
         });
-
-        function getCookie(name) {
-            let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-            return match ? match[2] : '';
-        }
-
-        function generateEventId() {
-            return 'ev_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
-        }
 
         const whatsappInput = document.getElementById('whatsapp-input');
         const nomeInput = document.getElementById('nome-input');
@@ -1429,34 +1418,12 @@
             formData.set('nome', rawNome);
             formData.set('whatsapp', cleanWhatsapp);
             formData.set('telefone', cleanWhatsapp); 
-
-            // Campos para o CAPI (Conversions API)
-            var event_id = generateEventId();
-            var fbp = getCookie('_fbp');
-            var fbc = getCookie('_fbc');
-
-            formData.set('event_id', event_id);
-            formData.set('_fbp', fbp);
-            formData.set('_fbc', fbc);
-            formData.set('user_agent', navigator.userAgent);
-
-            // Dispara pixel imediatamente (não espera o fetch)
-            if (pagamentoValue && pagamentoValue !== 'Não tenho') {
-                if (typeof fbq === 'function') {
-                    fbq('track', 'Lead', {
-                        value: 1.00,
-                        currency: 'BRL'
-                    }, {
-                        eventID: event_id
-                    });
-                }
-            }
             
             fetch(form.action, {
                 method: 'POST',
-                body: formData
+                body: formData,
+                mode: 'no-cors'
             })
-            .then(response => response.text())
             .then(() => {
                 form.style.display = 'none';
                 
@@ -1464,6 +1431,11 @@
                     // Redirecionamento falso para evitar o disparo do pixel de Lead
                     window.location.href = 'analise-recebida.html';
                 } else {
+                    // Lead qualificado - dispara pixel
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'Lead');
+                    }
+                    
                     msgSucesso.classList.remove('hidden');
                     msgSucesso.classList.add('block');
                 }
