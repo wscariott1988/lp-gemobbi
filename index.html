@@ -1297,6 +1297,16 @@
     </section>
 
 <script>
+        // Funções para ler cookies do Meta e gerar event_id
+        function getCookie(name) {
+            let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return match ? match : '';
+        }
+
+        function generateEventId() {
+            return 'ev_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+        }
+
         const form = document.getElementById('qualificacaoForm');
         const steps = document.querySelectorAll('.step-content');
         const msgSucesso = document.getElementById('msgSucesso');
@@ -1305,7 +1315,9 @@
         document.querySelectorAll('a[href="#formulario"]').forEach(link => {
             link.addEventListener('click', (e) => {
                 if (typeof fbq === 'function') {
-                    fbq('track', 'InitiateCheckout');
+                    fbq('track', 'InitiateCheckout', {
+                        eventID: 'ev_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now()
+                    });
                 }
             });
         });
@@ -1418,24 +1430,44 @@
             formData.set('nome', rawNome);
             formData.set('whatsapp', cleanWhatsapp);
             formData.set('telefone', cleanWhatsapp); 
+
+            // A Mágica do CAPI: Captura event_id, cookies e dados ocultos
+            var event_id = generateEventId();
+            var fbp = getCookie('_fbp');
+            var fbc = getCookie('_fbc');
+
+            formData.append('event_id', event_id);
+            formData.append('fbp', fbp);
+            formData.append('fbc', fbc);
+            formData.append('user_agent', navigator.userAgent);
+
+            var isQualificado = (pagamentoValue === 'A vista' || pagamentoValue === 'Cartão');
+
+            if (isQualificado) {
+                // Dispara o Pixel apenas para leads qualificados com event_id
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Lead', {
+                        value: 419.00,
+                        currency: 'BRL'
+                    }, {
+                        eventID: event_id
+                    });
+                }
+            }
             
             fetch(form.action, {
                 method: 'POST',
-                body: formData,
-                mode: 'no-cors'
+                body: formData
             })
+            .then(response => response.text())
             .then(() => {
                 form.style.display = 'none';
                 
-                if (pagamentoValue === 'Não tenho') {
-                    // Redirecionamento falso para evitar o disparo do pixel de Lead
+                if (!isQualificado) {
+                    // Desqualificados: redireciona sem disparar o pixel
                     window.location.href = 'analise-recebida.html';
                 } else {
-                    // Lead qualificado - dispara pixel
-                    if (typeof fbq === 'function') {
-                        fbq('track', 'Lead');
-                    }
-                    
+                    // Qualificados: mostra mensagem de sucesso inline
                     msgSucesso.classList.remove('hidden');
                     msgSucesso.classList.add('block');
                 }
